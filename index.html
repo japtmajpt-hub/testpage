@@ -1,126 +1,416 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>비건 도시락 | MZ를 위한 가볍고 맛있는 플랜트 베이스</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>그린런치 | 비건 도시락</title>
+  <meta name="description" content="MZ 세대를 위한 캐주얼 비건 도시락. 가볍게, 맛있게, 꾸준하게." />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --green:#34c77a; --bg:#fff; --text:#222; --muted:#666; --chip:#eafaf1; --card:#fafafa;
+      --bg:#fafafa;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --brand:#22c55e;
+      --brand-2:#a3e635;
+      --card:#ffffff;
+      --shadow:0 10px 25px rgba(0,0,0,.08);
+      --radius:18px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Pretendard,system-ui,-apple-system,Segoe UI,Roboto,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:var(--text);background:var(--bg);}
+    html,body{margin:0}
+    body{
+      font-family:'Noto Sans KR',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+      background:radial-gradient(1200px 600px at 15% -10%, #eafff2, transparent 50%),
+                 radial-gradient(1000px 500px at 95% 0%, #f0ffe0, transparent 45%),
+                 var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    header{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
-    .logo-badge{width:32px;height:32px;border-radius:10px;background:var(--green);display:grid;place-items:center;color:#fff}
-    nav{display:flex;gap:18px;font-weight:600}
-    .hero{display:grid;gap:16px;margin-top:18px}
-    .hero-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
-    .hero-main{position:relative;border-radius:16px;overflow:hidden;min-height:360px;background:#ddd}
-    .hero-main img{width:100%;height:100%;object-fit:cover;display:block}
-    .hero-tag{position:absolute;left:16px;top:16px;background:var(--chip);color:var(--green);font-weight:700;padding:8px 12px;border-radius:999px;font-size:13px}
-    .hero-side{display:grid;gap:16px}
-    .thumb{border-radius:16px;overflow:hidden;background:#ddd;min-height:170px}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .headline{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-    .headline h1{font-size:32px;line-height:1.25;margin:0}
-    .headline p{color:var(--muted);margin:0}
-    .cta{display:flex;gap:10px;margin-top:8px}
-    .btn{padding:12px 16px;border-radius:12px;font-weight:700;border:1px solid #0000}
-    .btn.primary{background:var(--green);color:#fff}
-    .btn.ghost{background:#fff;border-color:#e5e5e5}
-    /* cards */
-    .section{margin-top:40px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .card{background:var(--card);border:1px solid #eee;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-    .card img{width:100%;height:190px;object-fit:cover;display:block}
-    .card .body{padding:14px}
-    .badge{display:inline-block;background:var(--chip);color:var(--green);font-weight:700;border-radius:999px;font-size:12px;padding:6px 10px;margin-bottom:8px}
-    .card h3{margin:0 0 6px 0;font-size:18px}
-    .meta{color:var(--muted);font-size:13px;margin:0}
-    footer{margin:40px 0 10px 0;color:#888;font-size:12px}
-    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
-    @media (max-width:780px){.cards{grid-template-columns:1fr}}
+    .container{max-width:1120px;margin:0 auto;padding:24px 20px}
+    /* Nav */
+    .nav{
+      position:sticky;top:0;z-index:50;background:rgba(250,250,250,.7);
+      backdrop-filter:saturate(180%) blur(10px); border-bottom:1px solid #eef2f7
+    }
+    .nav__inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+    .logo__dot{width:12px;height:12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .nav__cta{display:flex;gap:10px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 16px;border-radius:14px;border:1px solid #e5e7eb;background:#fff;
+      box-shadow:0 1px 0 #f3f4f6; font-weight:600; transition:all .2s ease; cursor:pointer
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn--brand{
+      border-color:transparent;color:#0f172a;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 10px 18px rgba(34,197,94,.25)
+    }
+    /* Hero */
+    .hero{padding:56px 0 24px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+      background:#e8ffe5;border:1px dashed #bbf7d0;color:#065f46;font-weight:700;font-size:12px
+    }
+    .hero__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    .hero h1{font-size:44px;line-height:1.12;margin:16px 0 10px;letter-spacing:-.02em}
+    .hero p{color:var(--muted);font-size:18px;margin:0 0 18px}
+    .hero__actions{display:flex;gap:10px;flex-wrap:wrap}
+    .hero__card{
+      background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;overflow:hidden
+    }
+    .hero__img{
+      position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#f6f7f8
+    }
+    .demo-ribbon{
+      position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;background:rgba(255,255,255,.85);
+      padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;backdrop-filter:blur(6px)
+    }
+    .trust{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .trust span{font-size:12px;color:#065f46;background:#dcfce7;border:1px solid #bbf7d0;padding:6px 10px;border-radius:999px}
+    /* Section */
+    .section{padding:28px 0}
+    .section h2{font-size:28px;letter-spacing:-.02em;margin:0 0 12px}
+    .sub{color:var(--muted);margin:-6px 0 18px}
+    /* Cards grid */
+    .grid{
+      display:grid;gap:14px;grid-template-columns:repeat(12,1fr)
+    }
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    @media (max-width:980px){.hero__grid{grid-template-columns:1fr}.col-4,.col-6{grid-column:span 12}}
+    .card{
+      background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+      overflow:hidden;display:flex;flex-direction:column
+    }
+    .card__img{position:relative;aspect-ratio:4/3;background:#f3f4f6}
+    .card__body{padding:14px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .tag{font-size:12px;color:#374151;background:#f3f4f6;border:1px solid #e5e7eb;padding:4px 8px;border-radius:999px}
+    .price{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+    .price b{font-size:18px}
+    .kcal{color:var(--muted);font-size:12px}
+    .btn--ghost{background:#f9fafb;border:1px solid #e5e7eb}
+    /* Steps */
+    .step{
+      display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid #e5e7eb;
+      border-radius:16px;padding:14px
+    }
+    .icon{
+      width:36px;height:36px;border-radius:999px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0f172a;font-weight:800
+    }
+    /* Pricing */
+    .pricecard{padding:16px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);border:1px solid #e5e7eb}
+    .pricecard h3{margin:0 0 4px}
+    .pricecard ul{margin:10px 0 0;padding-left:18px}
+    /* Reviews */
+    .review{
+      background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:14px
+    }
+    .stars{color:#f59e0b;letter-spacing:2px}
+    /* FAQ */
+    details{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:12px}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:700}
+    /* Footer */
+    .footer{
+      padding:24px 0;margin-top:16px;border-top:1px solid #eef2f7;color:#6b7280;font-size:14px
+    }
+    /* Toast */
+    .toast{
+      position:fixed;right:16px;bottom:16px;background:#111827;color:#fff;padding:12px 14px;border-radius:12px;
+      box-shadow:0 8px 18px rgba(0,0,0,.25);opacity:0;transform:translateY(10px);pointer-events:none;transition:all .25s ease
+    }
+    .toast.show{opacity:1;transform:translateY(0)}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <div class="logo-badge">🌿</div>
-        <span>VEGGIE BOX</span>
-      </div>
-      <nav>
-        <a href="#menu">메뉴</a>
-        <a href="#how">이용방법</a>
-        <a href="#about">브랜드</a>
+  <!-- Nav -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="#">
+        <span class="logo__dot" aria-hidden="true"></span>
+        그린런치
+      </a>
+      <nav class="nav__cta">
+        <a class="btn" href="#menu" aria-label="메뉴 보기">메뉴</a>
+        <a class="btn btn--brand" href="#pricing" aria-label="구독하기">구독하기</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-main">
-          <img src="https://images.pexels.com/photos/10361132/pexels-photo-10361132.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="비건 도시락 스낵팩과 신선한 채소">
-          <div class="hero-tag">100% 식물성</div>
+  <!-- Hero -->
+  <section class="hero container">
+    <span class="badge">비건 도시락 · MZ 취향저격</span>
+    <div class="hero__grid">
+      <div>
+        <h1>비건 도시락, <br>가볍게 즐기다</h1>
+        <p>출근 전 고민 끝. 점심은 <b>그린런치</b>가 책임진다. <br>맛·영양·감성까지 채운 MZ 최애 식단.</p>
+        <div class="hero__actions">
+          <a class="btn btn--brand" href="#menu">인기 메뉴 보기</a>
+          <a class="btn btn--ghost" href="#how">어떻게 만들까?</a>
         </div>
-        <div class="hero-side">
-          <div class="thumb">
-            <img src="https://images.pexels.com/photos/6995259/pexels-photo-6995259.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="브로콜리·콩·폴렌타로 구성된 비건 밀프렙">
+        <div class="trust">
+          <span>100% 식물성</span>
+          <span>가벼운 포장</span>
+          <span>당일 제조</span>
+        </div>
+      </div>
+      <div class="hero__card">
+        <div class="hero__img">
+          <span class="demo-ribbon">DEMO 이미지</span>
+          <!-- Hero 메인 이미지 교체 -->
+          <img src="https://images.pexels.com/photos/10361132/pexels-photo-10361132.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&dpr=1"
+               alt="신선 채소와 곡물로 구성된 비건 도시락"
+               loading="eager"
+               style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="display:flex;gap:10px;margin-top:12px">
+          <div class="card" style="flex:1">
+            <div class="card__img">
+              <span class="demo-ribbon">DEMO</span>
+              <!-- Hero 사이드 1 이미지 교체 -->
+              <img src="https://images.pexels.com/photos/7434292/pexels-photo-7434292.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                   alt="퀴노아·캐슈넛·두부 비건 샐러드"
+                   loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;">
+            </div>
           </div>
-          <div class="thumb">
-            <img src="https://images.pexels.com/photos/17597408/pexels-photo-17597408.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="병아리콩·아보카도·퀴노아 그린 볼">
+          <div class="card" style="flex:1">
+            <div class="card__img">
+              <span class="demo-ribbon">DEMO</span>
+              <!-- Hero 사이드 2 이미지 교체 -->
+              <img src="https://images.pexels.com/photos/10695966/pexels-photo-10695966.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                   alt="현미와 신선 채소가 담긴 비건 라이스 볼"
+                   loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;">
+            </div>
           </div>
         </div>
       </div>
-      <div class="headline">
-        <h1>MZ를 위한 가볍고 캐주얼한 <br>비건 도시락</h1>
-        <p>출근·헬스·스터디 어디서나, 열자마자 바로 맛있는 플랜트 베이스.</p>
-        <div class="cta">
-          <a class="btn primary" href="#menu">오늘의 메뉴 보기</a>
-          <a class="btn ghost" href="#how">정기구독 안내</a>
+    </div>
+  </section>
+
+  <!-- Popular Menu -->
+  <section id="menu" class="section container">
+    <h2>이번 주 인기 메뉴</h2>
+    <p class="sub">가볍고 든든하게. 꾸준히 먹을 수 있는 맛으로 구성했다.</p>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <article class="card col-4">
+        <div class="card__img">
+          <span class="demo-ribbon">DEMO</span>
+          <!-- 인기메뉴 1 이미지 교체 -->
+          <img src="https://images.pexels.com/photos/17597408/pexels-photo-17597408.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="병아리콩·퀴노아·구운 채소 그린 프로틴 볼"
+               loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="card__body">
+          <div class="tags">
+            <span class="tag">#고단백</span><span class="tag">#저지방</span><span class="tag">#그레인</span>
+          </div>
+          <h3 style="margin:0">그린 프로틴 볼</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">병아리콩, 퀴노아, 구운 채소</p>
+          <div class="price">
+            <b>₩7,900</b>
+            <span class="kcal">약 520 kcal</span>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn--brand" onclick="addToCart('그린 프로틴 볼')">장바구니 담기</button>
+            <button class="btn btn--ghost">자세히</button>
+          </div>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="card col-4">
+        <div class="card__img">
+          <span class="demo-ribbon">DEMO</span>
+          <!-- 인기메뉴 2 이미지 교체 -->
+          <img src="https://images.pexels.com/photos/12006395/pexels-photo-12006395.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="바질 페스토와 방울토마토 토마토 파스타 샐러드"
+               loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="card__body">
+          <div class="tags">
+            <span class="tag">#가벼움</span><span class="tag">#캠퍼스룩</span><span class="tag">#런치픽</span>
+          </div>
+          <h3 style="margin:0">토마토 파스타 샐러드</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">바질 페스토 · 방울토마토</p>
+          <div class="price">
+            <b>₩7,500</b>
+            <span class="kcal">약 430 kcal</span>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn--brand" onclick="addToCart('토마토 파스타 샐러드')">장바구니 담기</button>
+            <button class="btn btn--ghost">자세히</button>
+          </div>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="card col-4">
+        <div class="card__img">
+          <span class="demo-ribbon">DEMO</span>
+          <!-- 인기메뉴 3 이미지 교체 -->
+          <img src="https://images.pexels.com/photos/15797936/pexels-photo-15797936.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+               alt="표고·양송이와 현미로 만든 버섯 데리야키 라이스"
+               loading="lazy"
+               style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="card__body">
+          <div class="tags">
+            <span class="tag">#든든함</span><span class="tag">#후기인증</span><span class="tag">#데스크런치</span>
+          </div>
+          <h3 style="margin:0">버섯 데리야키 라이스</h3>
+          <p style="margin:6px 0 0;color:var(--muted)">표고 & 양송이, 현미</p>
+          <div class="price">
+            <b>₩8,200</b>
+            <span class="kcal">약 610 kcal</span>
+          </div>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn btn--brand" onclick="addToCart('버섯 데리야키 라이스')">장바구니 담기</button>
+            <button class="btn btn--ghost">자세히</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="section container">
+    <h2>어떻게 만들까?</h2>
+    <p class="sub">그린런치는 과하고 복잡하지 않다. 신선함과 밸런스에 집중한다.</p>
+
+    <div class="grid">
+      <div class="col-4 step">
+        <div class="icon">1</div>
+        <div>
+          <b>국내산 위주 신선 재료</b>
+          <p style="margin:6px 0 0;color:var(--muted)">제철 채소와 곡물로 매주 레시피를 다듬는다.</p>
         </div>
       </div>
-    </section>
-
-    <!-- Menu Cards -->
-    <section id="menu" class="section">
-      <h2 style="margin:0 0 12px 0;">🔥 인기 메뉴</h2>
-      <div class="cards">
-        <article class="card">
-          <img src="https://images.pexels.com/photos/8732580/pexels-photo-8732580.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="그린 프로틴 볼">
-          <div class="body">
-            <span class="badge">그린 프로틴 볼</span>
-            <h3>퀴노아·병아리콩·케일</h3>
-            <p class="meta">식물성 단백질 25g / 칼로리 라이트</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.pexels.com/photos/12006395/pexels-photo-12006395.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="토마토 페스토 파스타 샐러드">
-          <div class="body">
-            <span class="badge">페스토 파스타</span>
-            <h3>바질·체리토마토·통밀</h3>
-            <p class="meta">상큼한 토마토 & 허브 풍미</p>
-          </div>
-        </article>
-        <article class="card">
-          <img src="https://images.pexels.com/photos/15797936/pexels-photo-15797936.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="머쉬룸 테리야키 라이스">
-          <div class="body">
-            <span class="badge">머쉬룸 테리야키</span>
-            <h3>각종 버섯·채소 스터-프라이</h3>
-            <p class="meta">담백한 간장 베이스, 밥과 찰떡</p>
-          </div>
-        </article>
+      <div class="col-4 step">
+        <div class="icon">2</div>
+        <div>
+          <b>영양 밸런스</b>
+          <p style="margin:6px 0 0;color:var(--muted)">탄수·단백·지방 비율을 고려해 포만감을 유지한다.</p>
+        </div>
       </div>
-    </section>
+      <div class="col-4 step">
+        <div class="icon">3</div>
+        <div>
+          <b>당일 제조 · 가벼운 포장</b>
+          <p style="margin:6px 0 0;color:var(--muted)">먹기 편한 친화적 패키징으로 번거로움 줄인다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-      이미지 출처: Pexels (무료 라이선스). 개별 사진 링크는 아래 참고.
-    </footer>
-  </div>
+  <!-- Pricing -->
+  <section id="pricing" class="section container">
+    <h2>구독 플랜</h2>
+    <p class="sub">일정에 맞춰 가볍게 시작하면 된다.</p>
+    <div class="grid">
+      <div class="col-6 pricecard">
+        <h3>라이트 (주 3회)</h3>
+        <p style="margin:0;color:var(--muted)">바쁜 주간에 가볍게</p>
+        <div class="price" style="margin-top:8px"><b>₩69,000 / 월</b><span class="kcal">배송비 포함</span></div>
+        <ul>
+          <li>메뉴 자유 선택</li>
+          <li>스킵/연기 가능</li>
+          <li>알러지 옵션 제공</li>
+        </ul>
+        <div style="margin-top:12px"><a class="btn btn--brand" href="#!" onclick="notify('라이트 구독 신청 완료 (데모)')">라이트로 시작</a></div>
+      </div>
+      <div class="col-6 pricecard" style="border:2px solid #86efac">
+        <h3>스탠다드 (주 5회)</h3>
+        <p style="margin:0;color:var(--muted)">루틴을 만들기에 딱</p>
+        <div class="price" style="margin-top:8px"><b>₩109,000 / 월</b><span class="kcal">배송비 포함</span></div>
+        <ul>
+          <li>우선 배송</li>
+          <li>월 1회 메뉴 체험팩</li>
+          <li>친구 초대 크레딧</li>
+        </ul>
+        <div style="margin-top:12px"><a class="btn btn--brand" href="#!" onclick="notify('스탠다드 구독 신청 완료 (데모)')">스탠다드로 시작</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section container">
+    <h2>후기</h2>
+    <p class="sub">솔직한 사용감. 꾸준히 먹게 되는 이유다.</p>
+    <div class="grid">
+      <div class="col-4 review">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p style="margin:6px 0 0">점심 고민 끝났다. 무겁지 않고 포만감 유지됨.</p>
+        <small style="color:var(--muted)">— 28세, 디자이너</small>
+      </div>
+      <div class="col-4 review">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p style="margin:6px 0 0">메뉴가 트렌디해서 질리지 않는다. 포장도 깔끔.</p>
+        <small style="color:var(--muted)">— 25세, 대학생</small>
+      </div>
+      <div class="col-4 review">
+        <div class="stars" aria-hidden="true">★★★★☆</div>
+        <p style="margin:6px 0 0">주 5회 구독 중. 오후 컨디션이 확실히 가벼움.</p>
+        <small style="color:var(--muted)">— 31세, 기획자</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section container">
+    <h2>자주 묻는 질문</h2>
+    <div class="grid">
+      <div class="col-6">
+        <details open>
+          <summary>당일 제조가 맞나?</summary>
+          <p style="margin:10px 0 0;color:var(--muted)">네, 주문 수량에 맞춰 당일 아침에 준비한다. (데모 콘텐츠)</p>
+        </details>
+        <details>
+          <summary>알러지 옵션이 있나?</summary>
+          <p style="margin:10px 0 0;color:var(--muted)">있다. 원재료 안내 후 대체 가능 여부를 확인한다. (데모)</p>
+        </details>
+      </div>
+      <div class="col-6">
+        <details>
+          <summary>배송 가능 지역은?</summary>
+          <p style="margin:10px 0 0;color:var(--muted)">일부 지역 우선 배송 후 순차 확대 예정이다. (데모)</p>
+        </details>
+        <details>
+          <summary>스킵/연기는 어떻게 하나?</summary>
+          <p style="margin:10px 0 0;color:var(--muted)">마이페이지에서 원하는 날짜를 선택해 스킵/연기하면 된다. (데모)</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <span>© 2025 그린런치</span>
+      <span>문의: hello@greenlunch.example (데모)</span>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    function addToCart(name){
+      notify(`'${name}'를 장바구니에 담았다. (데모)`);
+    }
+    function notify(msg){
+      const t=document.getElementById('toast');
+      t.textContent=msg;
+      t.classList.add('show');
+      clearTimeout(window.__t);
+      window.__t=setTimeout(()=>t.classList.remove('show'),2200);
+    }
+  </script>
 </body>
 </html>
