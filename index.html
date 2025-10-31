@@ -6,6 +6,7 @@
   <title>그린런치 | 비건 도시락</title>
   <meta name="description" content="MZ 세대를 위한 캐주얼 비건 도시락. 가볍게, 맛있게, 꾸준하게." />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
   <style>
     :root{
       --bg:#fafafa;
@@ -63,10 +64,6 @@
     }
     .hero__img{
       position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#f6f7f8
-    }
-    .demo-ribbon{
-      position:absolute;top:10px;left:10px;font-size:12px;font-weight:700;background:rgba(255,255,255,.85);
-      padding:6px 10px;border-radius:999px;border:1px solid #e5e7eb;backdrop-filter:blur(6px)
     }
     .trust{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
     .trust span{font-size:12px;color:#065f46;background:#dcfce7;border:1px solid #bbf7d0;padding:6px 10px;border-radius:999px}
@@ -161,20 +158,35 @@
       </div>
       <div class="hero__card">
         <div class="hero__img">
-          <span class="demo-ribbon">DEMO 이미지</span>
-          <img src="https://picsum.photos/seed/vegan_hero/960/720" alt="신선한 채소와 곡물로 구성된 비건 도시락 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+          <!-- Hero 메인 이미지 (Food) -->
+          <img
+            src="https://images.pexels.com/photos/10361132/pexels-photo-10361132.jpeg?auto=compress&cs=tinysrgb&w=960&h=720&dpr=1"
+            alt="신선 채소와 곡물로 구성된 비건 도시락"
+            width="960" height="720"
+            fetchpriority="high" loading="eager" decoding="async"
+            style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div style="display:flex;gap:10px;margin-top:12px">
           <div class="card" style="flex:1">
             <div class="card__img">
-              <span class="demo-ribbon">DEMO</span>
-              <img src="https://picsum.photos/seed/vegan_side1/800/600" alt="비건 토핑 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+              <!-- Hero 사이드 1 -->
+              <img
+                src="https://images.pexels.com/photos/7434292/pexels-photo-7434292.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                alt="퀴노아·두부·캐슈넛이 들어간 비건 샐러드"
+                width="800" height="600"
+                loading="lazy" decoding="async"
+                style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
           <div class="card" style="flex:1">
             <div class="card__img">
-              <span class="demo-ribbon">DEMO</span>
-              <img src="https://picsum.photos/seed/vegan_side2/800/600" alt="비건 샐러드 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+              <!-- Hero 사이드 2 -->
+              <img
+                src="https://images.pexels.com/photos/10695966/pexels-photo-10695966.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                alt="현미와 신선 채소를 담은 비건 라이스 볼"
+                width="800" height="600"
+                loading="lazy" decoding="async"
+                style="width:100%;height:100%;object-fit:cover;">
             </div>
           </div>
         </div>
@@ -191,8 +203,12 @@
       <!-- Card 1 -->
       <article class="card col-4">
         <div class="card__img">
-          <span class="demo-ribbon">DEMO</span>
-          <img src="https://picsum.photos/seed/bowl1/800/600" alt="그린 프로틴 볼 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+          <img
+            src="https://images.pexels.com/photos/17597408/pexels-photo-17597408.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+            alt="병아리콩·퀴노아·구운 채소 그린 프로틴 볼"
+            width="800" height="600"
+            loading="lazy" decoding="async"
+            style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="card__body">
           <div class="tags">
@@ -213,8 +229,12 @@
       <!-- Card 2 -->
       <article class="card col-4">
         <div class="card__img">
-          <span class="demo-ribbon">DEMO</span>
-          <img src="https://picsum.photos/seed/bowl2/800/600" alt="토마토 파스타 샐러드 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+          <img
+            src="https://images.pexels.com/photos/12006395/pexels-photo-12006395.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+            alt="바질 페스토와 방울토마토 토마토 파스타 샐러드"
+            width="800" height="600"
+            loading="lazy" decoding="async"
+            style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="card__body">
           <div class="tags">
@@ -235,8 +255,12 @@
       <!-- Card 3 -->
       <article class="card col-4">
         <div class="card__img">
-          <span class="demo-ribbon">DEMO</span>
-          <img src="https://picsum.photos/seed/bowl3/800/600" alt="버섯 데리야키 라이스 데모 이미지" style="width:100%;height:100%;object-fit:cover;">
+          <img
+            src="https://images.pexels.com/photos/15797936/pexels-photo-15797936.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+            alt="표고·양송이와 현미로 만든 버섯 데리야키 라이스"
+            width="800" height="600"
+            loading="lazy" decoding="async"
+            style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="card__body">
           <div class="tags">
